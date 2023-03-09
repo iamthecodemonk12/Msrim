@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Post Blog</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+    <!-- partial:../../partials/_sidebar.html -->
+    <%- include("../../includes/dashboard_include/navbar.ejs")  %>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="alert alert-danger">
+                                <strong><%= error %> </strong>
+                                <p>
+                                    <%=errorDesc %>
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Book</h4>
+                                <p class="card-description">
+                                    Upload book posts
+                                </p>
+                                <form class="forms-sample" enctype="multipart/form-data" action='/crbks' method="post">
+                                    <div class="form-group">
+                                        <label for="exampleInputName1">Title</label>
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputCity1">Description</label>
+                                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Description" name="desc">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputCity1">Author</label>
+                                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Description" name="auth">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputCity1">Isbn</label>
+                                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Description" name="Isbn">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>File upload</label>
+                                        <input type="file" name="book" class="file-upload-default">
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Books">
+                                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                              </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>File upload cover book</label>
+                                            <input type="file" name="c_book" class="file-upload-default">
+                                            <div class="input-group col-xs-12">
+                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Book Cover photo">
+                                                <span class="input-group-append">
+                                    <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                  </span>
+                                            </div>
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label for="exampleTextarea1">Body</label>
+                                        <textarea class="form-control" id="exampleTextarea1" rows="10" name="body"></textarea>
+                                    </div> -->
+                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                    <button class="btn btn-light">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:../../partials/_footer.html -->
+            <%- include("../../includes/dashboard_include/footer.ejs")  %>
+                <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="../../vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+        <script src="../../vendors/select2/select2.min.js"></script>
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="../../js/off-canvas.js"></script>
+        <script src="../../js/hoverable-collapse.js"></script>
+        <script src="../../js/template.js"></script>
+        <script src="../../js/settings.js"></script>
+        <script src="../../js/todolist.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script>
+            const input = document.querySelector("#inlineFormInputName2");
+            const btn = document.querySelector(".btn");
+            const xhttp = new XMLHttpRequest();
+            const alrt_box = document.querySelector(".alert >strong");
+            const alrt_box_cont = document.querySelector(".alert");
+
+            function findDupInDb() {
+                if (alrt_box.innerText == "") {
+                    alrt_box_cont.style.opacity = '0';
+                } else {
+                    alrt_box_cont.style.transition = '0.5s'
+                    alrt_box_cont.style.opacity = '1';
+                    setTimeout(function() {
+                        alrt_box.innerText = "";
+                        alrt_box_cont.style.opacity = '0';
+                    }, 5000);
+                }
+            };
+            btn.addEventListener('click', function(e) {
+                if (input.value === '') {
+                    alrt_box_cont.style.transition = '0.5s'
+                    alrt_box_cont.style.opacity = '1';
+                    setTimeout(function() {
+                        alrt_box.innerText = "";
+                        alrt_box_cont.style.opacity = '0';
+                    }, 5000);
+                    e.preventDefault();
+                }
+            });
+            findDupInDb
+            window.onload = findDupInDb();
+        </script>
+        <script src="../../js/file-upload.js"></script>
+        <script src="../../js/typeahead.js"></script>
+        <script src="../../js/select2.js"></script>
+        <!-- End custom js for this page-->
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Blog</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/blog.css">
+    <link rel="stylesheet" type="text/css" href="styles/blog_responsive.css">
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Msrim info box</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <h3>Thank you for subscribing we will get back to you</h3>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="images/logo.png" alt="" class="resp"></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="sermons">Sermons</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li class="active"><a href="#">Blog</a></li>
+                            <li><a href="/books">books</a></li>  
+                            <li><a href="contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">Blog</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li>Blog</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Latest News -->
+
+            <div class="news">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="section_title_container text-center">
+                                <div class="section_title">latest news</div>
+                                <div class="section_subtitle">Be part of a community of people experiencing God together.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row news_row">
+                        <% if (blog.length <3){  %>
+                            <div class="col-xl-12 col-lg-6">
+                                <h3 style="text-align:center !important ;">no blog post currently available</h3>
+                            </div>
+                       <%} else{ %> 
+                            <% for( let index = 0; index < blog.length; index++ ) { %>
+                                            <!-- News Post -->
+                                <div class="col-xl-4 col-lg-6 news_post_col">
+                                    <div class="news_post">
+                                        <div class="news_image"><img src="<%= blog[index].pictures.replace("./public/uploads/blog","../../uploads/blog/") %>" alt=""></div>
+                                        <div class="news_post_content">
+                                            <div class="news_post_title">
+                                                <a href="/blog/<%= blog[index].title %>"><%= blog[index].title %> </a>
+                                            </div>
+                                            <div class="news_post_meta">
+                                                <ul>
+                                                    <li><i class="fa fa-user" aria-hidden="true"></i><a href="#"><%= blog[index].author %></a></li>
+                                                    <li><i class="fa fa-calendar-o" aria-hidden="true"></i><a href="#"><%= new Date().getDay(blog[index].createdAt) %><%= " " %><%= days[new Date().getMonth(blog[index].createdAt)] %><%= "," %> <%= new Date().getFullYear(blog[index].createdAt) %> </a></li>
+                                                    <li><i class="fa fa-comment" aria-hidden="true"></i><a href="#">15</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="news_post_text">
+                                                <p><%= blog[index].description %></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- News Post -->
+                            <% } %>
+                        <% } %>                        
+                    </div>
+
+                    <!-- Page Nav -->
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="page_nav">
+                               <ul>
+                                    <li class="active"><a href="/blog?page=0">1</a></li>
+                                    <% var i= Math.ceil(one_data.length/3-1); %>
+                                    <% for( let index = 0; index <i ; index++ ) { %>
+                                          <li><a href="/blog?page=<%= index+1%>"><%= index+2 %> </a></li>
+                                    <% } %>
+                                     <li><a href="/blog?page=<%= i%> "><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include ("includes/footer.ejs") %>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const contact_btn = document.querySelector(".form_submit_button");
+            const contact_name = document.querySelector(".form_name");
+            const contact_email = document.querySelector(".email_input");
+            const contact_message = document.querySelector(".form_text");
+            const txt_overlay=document.querySelector("#text");
+            
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/usermsg', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            contact_btn.addEventListener('click', function(e) {
+                sendDataToServer();
+                e.preventDefault()
+                // on("Thanks for the message we will keep in touch")
+            });
+        });
+    </script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+
+</html>

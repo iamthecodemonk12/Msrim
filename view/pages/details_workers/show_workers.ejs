@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skydash Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="../../styles/bootstrap4/bootstrap.min.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <style>
+        .cont {
+            height: 100vh;
+        }
+        
+        .container {
+            height: 100% !important;
+        }
+        
+        .card {
+            margin-top: 3%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(68, 67, 67, 0.19) !important;
+        }
+        
+        p {
+            margin-bottom: 20px !important;
+        }
+        
+        .btn {
+            border-radius: none !important;
+            width: 100%;
+            background: #4B49AC;
+        }
+        
+        a {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="cont">
+        <div class="container d-flex justify-content-center">
+            <!-- <h2>Stretched Link in Card</h2>
+            <p>Add the .stretched-link class to a link inside the card, and it will make the whole card clickable (the card will act as a link):</p> -->
+            <div class="card border border-primary" style="width:400px; height:90%;">
+                <img class="card-img-top" src="<%= profile_img %>" alt="Card image" style="width:100%">
+                <div class="card-body">
+                    <h2 class="card-title text-center text-primary">
+                        <%= findOneWorker.name %>
+                            <%= findOneWorker.surname %>
+                    </h2>
+                    <p class="card-text m-n2">
+                        <h5 class="font-weight-bolder ">Role:
+                            <%= findOneWorker.role %>
+                        </h5>
+                    </p>
+                    <p class="card-text">
+                        <h5 class="font-weight-bolder">Number:
+                            <%= findOneWorker.phone_number %>
+                        </h5>
+                    </p>
+                    <a href="#" class="btn  stretched-link text-white text-center">Print Profile</a>
+                    <h5 class="text-danger font-weight-bolder text-center">Please if found report to the nearest police station or church authority</h5>
+                </div>
+            </div>
+        </div>
+        <script src="../../styles/bootstrap4/bootstrap.min.js"></script>
+        <script>
+            const btn = document.querySelector('.btn');
+            btn.addEventListener('click', function(e) {
+                btn.style.display = 'none';
+                window.print();
+                btn.style.display = 'block';
+                // console.log(window.print());
+            });
+        </script>
+</body>
+
+</html>

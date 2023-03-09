@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Events</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/events.css">
+    <link rel="stylesheet" type="text/css" href="styles/events_responsive.css">
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Msrim info box</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <h3>Thank you for subscribing we will get back to you</h3>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="images/logo.png" alt="" class="resp"></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="sermons">Sermons</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="/books">books</a></li>  
+                            <li><a href="contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">Events</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li>Events</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Event -->
+            <% if (events.length !==0) { %>
+                <div class="upcoming">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="section_title_container text-center">
+                                    <div class="section_title">upcoming event</div>
+                                    <div class="section_subtitle">Experience God's Presence</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row about_row">
+                            <div class="col-lg-6">
+                                <div class="upcoming_image"><img src="<%= one_data[one_data.length-1].picture.replace("./public/images/event","../../images/event/").trim() %> " alt=""></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="event_container d-flex flex-md-row flex-column align-items-start justify-content-start">
+                                    <div class="event_date">
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <div class="event_day"><%= d.getDate(events[events.length-1].createdAt) %> </div>
+                                            <div class="event_month"><%= days[d.getMonth(events[events.length-1].createdAt)] %> </div>
+                                        </div>
+                                    </div>
+                                    <div class="event_content">
+                                        <div class="event_title"><a href="events/<%= one_data[one_data.length-1].ev_title %>"><%= events[events.length-1].ev_title %></a></div>
+                                        <ul class="event_row">
+                                            <li>
+                                                <div class="event_icon"><img src="images/calendar.png" alt=""></div>
+                                                <span>08:00 AM - 11:00 AM</span>
+                                            </li>
+                                            <li>
+                                                <div class="event_icon"><img src="images/location.png" alt=""></div>
+                                                <span><%= one_data[one_data.length-1].location %></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="event_text">
+                                    <p><%= one_data[one_data.length-1].ev_desc %> </p>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            <% }else{ %>
+                 <div class="upcoming">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="section_title_container text-center">
+                                    <div class="section_title">upcoming event</div>
+                                    <div class="section_subtitle">Experience God's Presence</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row about_row">
+                            <div class="col-lg-6">
+                                <div class="upcoming_image"><img src="../../images/news_5.jpg" alt=""></div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="event_container d-flex flex-md-row flex-column align-items-start justify-content-start">
+                                    <div class="event_date">
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <div class="event_day">No latest event yet</div>
+                                            <div class="event_month"> </div>
+                                        </div>
+                                    </div>
+                                    <div class="event_content">
+                                        <div class="event_title"><a href="#">No latest event yet</a></div>
+                                        <ul class="event_row">
+                                            <li>
+                                                <div class="event_icon"><img src="images/calendar.png" alt=""></div>
+                                                <span>08:00 AM - 11:00 AM</span>
+                                            </li>
+                                            <li>
+                                                <div class="event_icon"><img src="images/location.png" alt=""></div>
+                                                <span></span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="event_text">
+                                    <p>no event data yet</p>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            } %>
+            <% } %> 
+            <!-- Events -->
+
+            <div class="events">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="section_title_container text-center">
+                                <div class="section_title">list of events</div>
+                                <div class="section_subtitle">Events held and scheduled by us</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="events_items d-flex flex-lg-row flex-column align-items-lg-start align-items-center justify-content-lg-between justify-content-center flex-wrap">
+                    <% if (events.length===0) { %>
+                        <div class="col-xl-12 col-lg-6">
+                            <h3 style="text-align:center !important ;">no events posted yet</h3>
+                        </div>
+                    <% }else{ %>
+                        <% for( let index = 0; index < events.length; index++ ) { %>
+                          <!-- Event -->
+                            <div class="events_item">
+                                <div class="events_item_image"><img src=<%= events[index].picture.replace("./public/images/event","../../images/event/").trim() %> alt=""></div>
+                                <div class="events_item_content d-flex flex-row align-items-start justfy-content-start">
+                                    <div class="event_date">
+                                        <div class="d-flex flex-column align-items-center justify-content-center">
+                                            <div class="event_day"><%= d.getDate(events[index].event_date) %> </div>
+                                            <div class="event_month"><%=days[d.getMonth(events[index].event_date)] %> </div>
+                                        </div>
+                                    </div>
+                                    <div class="event_content">
+                                        <div class="event_title"><a href="/events/<%= events[index].ev_title %> "><%= events[index].ev_title %> </a></div>
+                                        <ul class="event_row">
+                                            <li>
+                                                <div class="event_icon"><img src="images/calendar.png" alt=""></div>
+                                                <span>08:00 AM - 11:00 AM</span>
+                                            </li>
+                                            <li>
+                                                <div class="event_icon"><img src="images/location.png" alt=""></div>
+                                                <span><%= events[index].location %> </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% } %> 
+
+                </div>
+
+                <!-- Page Nav -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="page_nav">
+                                <ul>
+                                    <li class="active"><a href="/events?page=0">1</a></li>
+                                    <% var i= Math.ceil(one_data.length/3-1); %>
+                                    <% for( let index = 0; index <i ; index++ ) { %>
+                                          <li><a href="/events?page=<%= index+1%>"><%= index+2 %> </a></li>
+                                    <% } %>
+                                     <li><a href="/events?page=<%= i%> "><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote -->
+
+            <div class="quote">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="quote_container text-center">
+                                <div class="quote_quote">“If there is no push there is no force if there is no force how do you want to run. and if there is no running then how do you want to fly.if there is no flying how do you want to land”</div>
+                                <div class="quote_icon"><img src="images/quote.png" alt=""></div>
+                                <div class="quote_source">Prophet Kunle Aloba(G.0)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include ("includes/footer.ejs") %>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const contact_btn = document.querySelector(".form_submit_button");
+            const contact_name = document.querySelector(".form_name");
+            const contact_email = document.querySelector(".email_input");
+            const contact_message = document.querySelector(".form_text");
+            const txt_overlay=document.querySelector("#text");
+            
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/usermsg', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            contact_btn.addEventListener('click', function(e) {
+                sendDataToServer();
+                e.preventDefault()
+                // on("Thanks for the message we will keep in touch")
+            });
+        });
+    </script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="js/events.js"></script>
+</body>
+
+</html>

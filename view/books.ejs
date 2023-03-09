@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>books</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/sermons.css">
+        <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles/sermons_responsive.css">
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Msrim info box</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <h3>Thank you for subscribing we will get back to you</h3>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="images/logo.png" class="resp" alt=""></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="sermons">Sermons</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="books">books</a></li>  
+                            <li><a href="contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">Books</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li>Books</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sermons -->
+
+            <div class="sermons">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="section_title_container text-center">
+                                <div class="section_title">list of books</div>
+                                <div class="section_subtitle">Our lives in praising God</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row sermons_row">
+                        <% if (books.length===0) { %>
+                            <div class="col-xl-12 col-lg-6">
+                                <h3 style="text-align:center !important ;">no books published</h3>
+                            </div>
+                        <% }else{ %>
+                            <% for( let index = 0; index < books.length; index++ ) { %>
+                                <!-- Sermon -->
+                               <div class="col-lg-4 sermon_col">
+                                   <div class="card">
+                                       <div class="event_date d-flex flex-column align-items-center justify-content-center">
+                                           <div class="event_day"><%= d.getDay(books[index].createdAt) %> </div>
+                                           <div class="event_month"><%= days[d.getMonth(books[index].createdAt)] %> </div>
+                                       </div>
+                                       <img class="card-img-top" src="images/sermon_1.jpg" alt="">
+                                       <div class="card-body text-center">
+                                           <div class="card-title sermon_title"><a href="/books/<%= books[index].title %> "><%= books[index].title %> </a></div>
+                                           <div class="card-text sermon_info_container">
+                                               <div class="sermon_info">
+                                                   <div class="sermon_info_title">author: </div>
+                                                   <ul class="sermon_info_list">
+                                                       <li><a href="#"><%= books[index].author %> </a></li>
+                                                   </ul>
+                                               </div>
+                                               <div class="sermon_info">
+                                                <div class="sermon_info_title">isbn: </div>
+                                                <ul class="sermon_info_list">
+                                                    <li><a href="#"><%= books[index].isbn %> </a></li>
+                                                </ul>
+                                            </div>
+                                            
+                                               <div class="sermon_links">
+                                                   <ul>
+                                                       <!-- <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li> -->
+                                                       <li><a href="<%= books[index].path.replace("./public/uploads/books upload","../../uploads/books upload/").trim() %>" download> <i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></li>
+                                                       <!-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->
+                                                       <!-- <li><a href="#"><i class="fa fa-download" aria-hidden="true"></i></a></li> -->
+                                                   </ul>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           <% } %>
+                        <% } %> 
+                    </div>
+
+                    <!-- Page Nav -->
+
+                    <div class="row">
+                        <div class="col">
+                            <div class="page_nav">
+                                <ul>
+                                    <li class="active"><a href="/books?page=0">1</a></li>
+                                    <% var i= Math.ceil(one_data.length/3-1); %>
+                                    <% for( let index = 0; index <i ; index++ ) { %>
+                                          <li><a href="/books?page=<%= index+1%>"><%= index+2 %> </a></li>
+                                    <% } %>
+                                     <li><a href="/books?page=<%= i%> "><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Quote -->
+
+            <div class="quote">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="quote_container text-center">
+                                <div class="quote_quote">“If there is no push there is no force if there is no force how do you want to run. and if there is no running then how do you want to fly.if there is no flying how do you want to land”</div>
+                                <div class="quote_icon"><img src="images/quote.png" alt=""></div>
+                                <div class="quote_source">Prophet Kunle Aloba(G.0)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include ("includes/footer.ejs") %>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const contact_btn = document.querySelector(".form_submit_button");
+            const contact_name = document.querySelector(".form_name");
+            const contact_email = document.querySelector(".email_input");
+            const contact_message = document.querySelector(".form_text");
+            const txt_overlay=document.querySelector("#text");
+            
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/usermsg', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            contact_btn.addEventListener('click', function(e) {
+                sendDataToServer();
+                e.preventDefault()
+                // on("Thanks for the message we will keep in touch")
+            });
+        });
+    </script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="js/sermons.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Post Blog</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+    <!-- partial:../../partials/_sidebar.html -->
+    <%- include("../../includes/dashboard_include/navbar.ejs")  %>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-12 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="alert alert-danger">
+                                <strong><%= error %> </strong>
+                                <p>
+                                    <%=errorDesc %>
+                                </p>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Create a sermon</h4>
+                                <p class="card-description">
+                                    Upload blog posts
+                                </p>
+                                <form class="forms-sample" enctype="multipart/form-data" action="/cs" method="post">
+                                    <div class="form-group">
+                                        <label for="exampleInputName1">Sermons Title</label>
+                                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="s_title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputName1">Sermons Pastor</label>
+                                        <input type="text" class="form-control" id="exampleInputName4" placeholder="Name" name="s_pastor">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputCity1">Sermons Theme</label>
+                                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Description" name="s_theme">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>File upload</label>
+                                        <input type="file" name="photo" class="file-upload-default">
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                            <span class="input-group-append">
+                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleTextarea1">Sermons Body</label>
+                                        <textarea class="form-control" id="exampleTextarea1" rows="10" name="s_body"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Upload Audio</label>
+                                        <input type="file" name="audio" class="file-upload-default">
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Sermon Audio">
+                                            <span class="input-group-append">
+                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputCity1">Sermons Facebook Link</label>
+                                        <input type="text" class="form-control" id="exampleInputCity2" placeholder="Description" name="s_social_link">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Upload Pdf</label>
+                                        <input type="file" name="pdf" class="file-upload-default">
+                                        <div class="input-group col-xs-12">
+                                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Sermon Pdf">
+                                            <span class="input-group-append">
+                                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label for="exampleInputCity1">Sermons Link</label>
+                                        <input type="text" class="form-control" id="exampleInputCity3" placeholder="Web link" name="s_link">
+                                    </div> -->
+                                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                    <button class="btn btn-light">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:../../partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+                </div>
+            </footer>
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+        </div>
+        <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="../../vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+        <script src="../../vendors/select2/select2.min.js"></script>
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="../../js/off-canvas.js"></script>
+        <script src="../../js/hoverable-collapse.js"></script>
+        <script src="../../js/template.js"></script>
+        <script src="../../js/settings.js"></script>
+        <script src="../../js/todolist.js"></script>
+        <!-- endinject -->
+        <script>
+            const input = document.querySelector("#inlineFormInputName2");
+            const btn = document.querySelector(".btn");
+            const xhttp = new XMLHttpRequest();
+            const alrt_box = document.querySelector(".alert >strong");
+            const alrt_box_cont = document.querySelector(".alert");
+
+            function findDupInDb() {
+                if (alrt_box.innerText == "") {
+                    alrt_box_cont.style.opacity = '0';
+                } else {
+                    alrt_box_cont.style.transition = '0.5s'
+                    alrt_box_cont.style.opacity = '1';
+                    setTimeout(function() {
+                        alrt_box.innerText = "";
+                        alrt_box_cont.style.opacity = '0';
+                    }, 5000);
+                }
+            };
+            btn.addEventListener('click', function(e) {
+                if (input.value === '') {
+                    alrt_box_cont.style.transition = '0.5s'
+                    alrt_box_cont.style.opacity = '1';
+                    setTimeout(function() {
+                        alrt_box.innerText = "";
+                        alrt_box_cont.style.opacity = '0';
+                    }, 5000);
+                    e.preventDefault();
+                }
+            });
+            findDupInDb
+            window.onload = findDupInDb();
+        </script>
+        <!-- Custom js for this page-->
+        <script src="../../js/file-upload.js"></script>
+        <script src="../../js/typeahead.js"></script>
+        <script src="../../js/select2.js"></script>
+        <!-- End custom js for this page-->
+</body>
+
+</html>

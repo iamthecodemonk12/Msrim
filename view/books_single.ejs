@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sermons</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap4/bootstrap.min.css">
+    <link href="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog_single.css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog_single_responsive.css">
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Msrim info box</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <h3>Thank you for subscribing we will get back to you</h3>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="/images/logo.png"class="resp" alt=""></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/sermons">Sermons</a></li>
+                            <li><a href="/events">Events</a></li>
+                            <li class="active"><a href="#">Blog</a></li>
+                            <li><a href="/books">books</a></li>  
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(/images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">Sermon</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/sermons">Sermon</a></li>
+                                        <li><%= books.title %> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Single -->
+
+            <div class="blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="blog_image"><img src="/<%= books.path.replace("./public/uploads/books upload","../../uploads/books upload/") %> " alt="no image"></div>
+
+                            <!-- Blog Post Title -->
+                            <div class="blog_post_title_container d-flex flex-row align-items-lg-center align-items-start justify-content-start">
+                                <div class="blog_post_date">
+                                    <div class="d-flex flex-column align-items-center justify-content-center">
+                                        <div class="blog_post_day"><%= new Date().getDay(books.createdAt) %> </div>
+                                        <div class="blog_post_month"><%= days[new Date().getMonth(books.createdAt)] %> </div>
+                                    </div>
+                                </div>
+                                <div class="blog_post_title_content">
+                                    <div class="blog_post_title"><%= books.description %> </div>
+                                    <div class="blog_post_meta">
+                                        <ul>
+                                            <li><i class="fa fa-user" aria-hidden="true"></i><a href="#"><%= books.author %> </a></li>
+                                            <!-- <li><i class="fa fa-comment" aria-hidden="true"></i><a href="#">12</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="social_and_tags d-flex flex-lg-row flex-column align-items-start justify-content-start">
+                                <div class="blog_social">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                                        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                                    </ul>
+                                </div>
+                                <div class="blog_post_tags ml-lg-auto">
+                                    <ul>
+                                        <li><a href="/sermons">sermon</a></li>
+                                        <li><a href="/events">events</a></li>
+                                        <li><a href="/books">books</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="social_and_tags d-flex flex-lg-row flex-column align-items-center justify-content-center">
+                                <div class="blog_social">
+                                    <ul>
+                                        <li><h3 style="color: rgb(37, 35, 35); text-transform: uppercase;">download option</h3></li>
+                                        <!-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->
+                                        <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                                        <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                                    </ul>
+                                </div>
+                                <!-- <div class="blog_post_tags ml-lg-auto">
+                                    <ul>
+                                        <li><a href="/sermons">sermon</a></li>
+                                        <li><a href="/events">events</a></li>
+                                        <li><a href="/books">books</a></li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                            <div class="social_and_tags d-flex flex-lg-row flex-column align-items-center justify-content-center" style="background-color: brown !important; border-radius: 20px !important;">
+                                <div class="blog_social">
+                                    <ul>
+                                       
+                                        <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                                      
+                                        <li><a href="<%= books.path.replace("./public/uploads/books upload","../../uploads/books upload/").trim() %>" download><i style="font-size: 30px !important; color: azure !important;" class="fa fa-file-pdf-o" aria-hidden="true"></i></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                                    </ul>
+                                </div>
+                                <!-- <div class="blog_post_tags ml-lg-auto">
+                                    <ul>
+                                        <li><a href="/sermon">sermon</a></li>
+                                        <li><a href="/events">events</a></li>
+                                        <li><a href="/books">books</a></li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comments -->
+
+                    
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include ("includes/footer.ejs") %>
+    </div>
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const contact_btn = document.querySelector(".form_submit_button");
+            const contact_name = document.querySelector(".form_name");
+            const contact_email = document.querySelector(".email_input");
+            const contact_message = document.querySelector(".form_text");
+            const txt_overlay=document.querySelector("#text");
+            
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/usermsg', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            contact_btn.addEventListener('click', function(e) {
+                sendDataToServer();
+                e.preventDefault()
+                // on("Thanks for the message we will keep in touch")
+            });
+        });
+    </script>
+    <script src="/styles/bootstrap4/popper.js"></script>
+    <script src="/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="/plugins/easing/easing.js"></script>
+    <script src="/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="/js/blog_single.js"></script>
+</body>
+
+</html>

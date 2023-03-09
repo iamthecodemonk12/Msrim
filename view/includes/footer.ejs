@@ -1,0 +1,118 @@
+<footer class="footer">
+    <div class="footer_background parallax-window" data-parallax="scroll" data-image-src="/images/footer.jpg" data-speed="0.8"></div>
+    <div class="container">
+        <div class="row">
+
+            <!-- Footer - Contact -->
+            <div class="col-lg-4 footer_col">
+                <div class="footer_column footer_contact_column">
+                    <div class="footer_logo_container">
+                        <a href="#">
+                            <div class="footer_logo"><img src="/images/logo_4.png" alt=""></div>
+                            <div class="footer_logo_text">msrim</div>
+                        </a>
+                    </div>
+                    <div class="footer_contact">
+                        <ul>
+                            <li>
+                                <div><i class="fa fa-map-marker" aria-hidden="true"></i></div><span>Behind Brainstorm off bwari express way fct abuja</span></li>
+                            <li>
+                                <div><i class="fa fa-phone" aria-hidden="true"></i></div><span>+234 8077229217</span></li>
+                            <li>
+                                <div><i class="fa fa-envelope" aria-hidden="true"></i></div><span>Email: morningsalvationministry@gmail.com</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer - Links -->
+            <div class="col-lg-4 footer_col">
+                <div class="footer_column footer_links">
+                    <div class="footer_title">useful links</div>
+                    <ul class="footer_links_list">
+                        <li><a href="/about"><i class="fa fa-angle-double-right" aria-hidden="true"></i> About us</a></li>
+                        <li><a href="/contact"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Contact</a></li>
+                        <li><a href="/"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Donation</a></li>
+                        <li><a href="/blog"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Blog</a></li>
+                        <li><a href="/sermons"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Sermons</a></li>
+                        <li><a href="/events"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Events</a></li>
+                        <!-- <li><a href="/"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Service</a></li> -->
+                        <!-- <li><a href="#"><i class="fa fa-angle-double-right" aria-hidden="true"></i> Media</a></li> -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer - Subscribe -->
+            <div class="col-lg-4 footer_col">
+                <div class="footer_column footer_subscribe">
+                    <div class="footer_title">subscribe</div>
+                    <div class="footer_text">Join our weekly email newsletter to receive news, events and other announcements about what is going on at our church.</div>
+                    <div class="footer_form_container">
+                        <form action="" class="footer_form">
+                            <div>
+                                <input type="email" class="mail_v subscribe_input" placeholder="Enter your email" required="required" name="ename" value="">
+                                <button class="subscribe_button trans_200" id="mail_btn" type="submit">subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row copyright_row">
+            <div class="col">
+                <div class="copyright_container d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
+                    <div class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>
+                            document.write(new Date().getFullYear());
+                        </script> All rights reserved | This website is designed <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">icraft family</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                    <div class="footer_social ml-lg-auto">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li> -->
+                            <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const sub_btn = document.querySelector(".mail_btn");
+            const contact_name = document.querySelector(".mail_v");
+            const mb=document.querySelector('.modal-body h3');
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/mail_sub', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("ename=" + contact_name.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            $("#mail_btn").click(function(e){
+                 sendDataToServer();
+                e.preventDefault()
+            });
+            
+        });
+    </script>
+</footer>

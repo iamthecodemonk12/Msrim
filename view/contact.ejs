@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Contact</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+</head>
+
+<body>
+    <!-- <div id="overlay">
+            <div id="text" onclick="off()">Overlay Text
+                <button type="button btn btn-primary">cancel</button>
+            </div>
+            <input type="button" value="ss">
+    </div> -->
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+      
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Msrim info box</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+      
+            <!-- Modal body -->
+            <div class="modal-body">
+             <h3>Thank you for subscribing we will get back to you</h3>
+            </div>
+      
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Msrim info box</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+         <h3>Thank you for subscribing we will get back to you</h3>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="images/logo.png" class="resp" alt=""></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li><a href="index">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="sermons">Sermons</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="books">books</a></li>  
+                            <li class="active"><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">Contact</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li>Contact</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+
+            <div class="contact">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- Contact Info -->
+                        <div class="col-lg-6">
+                            <div class="contact_info">
+                                <div class="contact_title">contact us</div>
+                                <div class="contact_info_content">
+                                    <ul>
+                                        <li>
+                                            <div><i class="fa fa-map-marker" aria-hidden="true"></i></div><span class="cp-txt" data-toggle="tooltip">Behind Brainstorm off bwari express way fct abuja</span></li>
+                                        <li>
+                                            <div><i class="fa fa-phone" aria-hidden="true"></i></div><span class="cp-txt" data-toggle="tooltip2">+234 8077229217</span></li>
+                                        <li>
+                                            <div><i class="fa fa-envelope" aria-hidden="true"></i></div><span class="cp-txt" data-toggle="tooltip3">Email: morningsalvationministry@gmail.com</span></li>
+                                        <li>
+                                            <div><i class="fa fa-globe" aria-hidden="true"></i></div><span class="cp-txt" data-toggle="tooltip4">www.msrimchurch.com</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="col-lg-6 contact_form_col">
+                            <div class="contact_form">
+                                <div class="contact_title">keep in touch</div>
+
+                                <!-- Contact Form -->
+                                <div class="contact_form_container">
+                                    <form action="">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form_input form_name" placeholder="Your Name" required="required" name="fname">
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <input type="email" class="form_input email_input" placeholder="Your Email" required="required" name="femail">
+                                            </div>
+                                            <div class="col-12">
+                                                <textarea class="form_text" placeholder="Your Message" required="required" name="fmsg"></textarea>
+                                                <button type="submit" class="form_submit_button">send comment</button>
+                                                <!-- <button onclick="on()">Turn on overlay effect</button> -->
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Map -->
+
+            <div class="contact_map">
+
+                <!-- Google Map -->
+
+                <div class="map">
+                    <div id="google_map" class="google_map">
+                        <div class="map_container">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer -->
+            <%- include ("includes/footer.ejs") %>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const contact_btn = document.querySelector(".form_submit_button");
+            const contact_name = document.querySelector(".form_name");
+            const contact_email = document.querySelector(".email_input");
+            const contact_message = document.querySelector(".form_text");
+            const txt_overlay=document.querySelector("#text");
+            
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/usermsg', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            contact_btn.addEventListener('click', function(e) {
+                sendDataToServer();
+                e.preventDefault()
+                // on("Thanks for the message we will keep in touch")
+            });
+        });
+    </script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+    <script src="js/contact.js"></script>
+    <script>
+        $(document).ready(function() {
+            let data = $(".cp-txt");
+            $(".contact_info_content ul>li:nth-child(1)").click(async function() {
+                try {
+                    const clipBoard = await navigator.clipboard;
+                    clipBoard.writeText(data[0].innerText);
+                    // console.log(data[0]);
+                } catch (error) {
+                    alert(error);
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

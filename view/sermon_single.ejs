@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sermons</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/bootstrap4/bootstrap.min.css">
+    <link href="/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog_single.css">
+    <link rel="stylesheet" type="text/css" href="/styles/blog_single_responsive.css">
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Msrim info box</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <h3>Thank you for subscribing we will get back to you</h3>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="/images/logo.png"class="resp" alt=""></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li><a href="/index">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/sermons">Sermons</a></li>
+                            <li><a href="/events">Events</a></li>
+                            <li class="active"><a href="#">Blog</a></li>
+                            <li><a href="/books">books</a></li>  
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div><div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Msrim info box</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <h3>Thank you for subscribing we will get back to you</h3>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(/images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">Sermon</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/sermons">Sermon</a></li>
+                                        <li><%= sermon.sermons_title %> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Single -->
+
+            <div class="blog">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="blog_image"><img src="/<%= sermon.pic.replace("./public/uploads/sermon","../../uploads/sermon") %> " alt="no image"></div>
+
+                            <!-- Blog Post Title -->
+                            <div class="blog_post_title_container d-flex flex-row align-items-lg-center align-items-start justify-content-start">
+                                <div class="blog_post_date">
+                                    <div class="d-flex flex-column align-items-center justify-content-center">
+                                        <div class="blog_post_day"><%= new Date().getDay(sermon.createdAt) %> </div>
+                                        <div class="blog_post_month"><%= days[new Date().getMonth(sermon.createdAt)] %> </div>
+                                    </div>
+                                </div>
+                                <div class="blog_post_title_content">
+                                    <div class="blog_post_title"><%= sermon.theme %> </div>
+                                    <div class="blog_post_meta">
+                                        <ul>
+                                            <li><i class="fa fa-bell-o" aria-hidden="true"></i><a href="#">kk</a></li>
+                                            <!-- <li><i class="fa fa-comment" aria-hidden="true"></i><a href="#">12</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog_post_text">
+                                <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel urna eget lectus molestie rhoncus sed in nunc. Vestibulum tincidunt facilisis ligula sed viverra. Duis porttitor sapien maximus, volutpat massa malesuada.
+                                    Curabitur orci est, ut molestie eget orci, tincidunt dictum felis. Cras ante nunc, pharetra eu rutrum aliquet, gestas eget ex. Suspendisse potenti. Quisque asvitae eros efficitur lacus viverra molestie at ut mi. Quisque
+                                    id mollis nibh...</p>
+                                <p>Fusce imperdiet, eros non fringilla auctor, dolor leo blandit magna, in pretium erat elit id neque. Nulla sagittis consequat arcu eu dignissim. Donec ultricies id ante vel blandit. Integer sit amet erat tincidunt, dictum
+                                    orci non, tincidunt nisi. Cras lacinia nisl eu aliquet pharetra. Duis finibus pulvinar tellus, sed convallis lectus faucibus vitae. Fusce rhoncus placerat magna, nec fermentum ex tristique eu. Donec aliquet purus lectus,
+                                    ut finibus augue porta ac. Nullam ultricies tempus libero, at dictum augue.</p>
+                                <div class="blog_post_quote">“ A church is a hospital for sinners, not a museum for saints. For where God built a church, there the Devil would also build a chapel.”</div>
+                                <p>Proin ac neque quis ex malesuada feugiat sed at ligula. Donec efficitur nisl tortor, eget auctor ex lobortis id. Duis cursus turpis nec venenatis dapibus. Nunc eget rhoncus purus, a semper orci. Mauris blandit non arcu
+                                    malesuada aliquam. Fusce iaculis augue ut neque sollicitudin, quis interdum enim consectetur. Nullam ut facilisis erat, eget viverra sem. Nulla lobortis tempor magna in maximus. Fusce nec ante et nunc elementum rutrum
+                                    ut in odio. Quisque cursus sit amet massa in mollis suspendisse ut ipsum a orci scelerisque tincidunt. Curabitur pellentesque lobortis ligula, in scelerisque felis volutpat nec.</p>
+                                <p>Aenean et enim aliquet, rutrum ante auctor, euismod urna. Phasellus ac erat faucibus, laoreet massa id, sagittis orci. In placerat pharetra lectus vitae gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                                    Vivamus massa massa, porttitor eget consectetur sed, vulputate ac velit. Integer ullamcorper ante ex. Quisque vitae eleifend elit. Vestibulum mi lectus, euismod in nunc eget, posuere eleifend sapien. In commodo euismod
+                                    lectus quis porttitor.</p>
+                                <p>Vestibulum tincidunt ut elit non varius. Sed eget velit lacinia, malesuada quam porttitor, rhoncus eros. Phasellus convallis, erat ac sodales porttitor, felis nibh ornare metus, id iaculis mauris massa eu risus. Curabitur
+                                    faucibus accumsan hendrerit. Aenean nisl diam, iaculis vel risus sit amet, molestie posuere lacus. Mauris in dolor mauris. Nam sed quam euismod, fringilla justo et, commodo dolor. Aenean nec magna vehicula nibh volutpat
+                                    suscipit. Aliquam fringilla, urna et tristique ultricies, odio nisl rutrum turpis.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a sollicitudin arcu. Nullam sagittis ipsum aliquet gravida mattis. Nunc in luctus sem, ut tristique ligula. Nulla pharetra dui sed sagittis blandit. Interdum et
+                                    malesuada fames ac ante ipsum primis in faucibus. Donec ut vestibulum nibh. Pellentesque ut lacus vitae dui tincidunt auctor. Donec urna leo, porttitor ac ultricies id, euismod finibus metus. Fusce id magna libero.</p> -->
+                                    <%= sermon.sermon_body %> 
+                            </div>
+                            <div class="social_and_tags d-flex flex-lg-row flex-column align-items-start justify-content-start">
+                                <div class="blog_social">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                                        <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                                    </ul>
+                                </div>
+                                <div class="blog_post_tags ml-lg-auto">
+                                    <ul>
+                                        <li><a href="/sermons">sermon</a></li>
+                                        <li><a href="/events">events</a></li>
+                                        <li><a href="/books">books</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="social_and_tags d-flex flex-lg-row flex-column align-items-center justify-content-center">
+                                <div class="blog_social">
+                                    <ul>
+                                        <li><h3 style="color: rgb(37, 35, 35); text-transform: uppercase;">download option</h3></li>
+                                        <!-- <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->
+                                        <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                                        <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                                    </ul>
+                                </div>
+                                <!-- <div class="blog_post_tags ml-lg-auto">
+                                    <ul>
+                                        <li><a href="/sermons">sermon</a></li>
+                                        <li><a href="/events">events</a></li>
+                                        <li><a href="/books">books</a></li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                            <div class="social_and_tags d-flex flex-lg-row flex-column align-items-center justify-content-center" style="background-color: brown !important; border-radius: 20px !important;">
+                                <div class="blog_social">
+                                    <ul>
+                                        <li><a href="<%= sermon.sermon_s_link %> "><i class="fa fa-facebook" style="font-size: 30px !important; color: azure !important;" aria-hidden="true"></i></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li> -->
+                                        <li><a href="<%= sermon.sermon_audio.replace("./public/uploads/sermon","../../uploads/sermon/").trim() %> " download><i style="font-size: 30px !important; color: azure !important;" class="fa fa-download" aria-hidden="true"></i></a></li>
+                                        <li><a href="<%= sermon.sermon_pdf.replace("./public/uploads/sermon","../../uploads/sermon/").trim() %>" download><i style="font-size: 30px !important; color: azure !important;" class="fa fa-file-pdf-o" aria-hidden="true"></i></a></li>
+                                        <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                                    </ul>
+                                </div>
+                                <!-- <div class="blog_post_tags ml-lg-auto">
+                                    <ul>
+                                        <li><a href="/sermon">sermon</a></li>
+                                        <li><a href="/events">events</a></li>
+                                        <li><a href="/books">books</a></li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comments -->
+
+                    
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include ("includes/footer.ejs") %>
+    </div>
+
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const contact_btn = document.querySelector(".form_submit_button");
+            const contact_name = document.querySelector(".form_name");
+            const contact_email = document.querySelector(".email_input");
+            const contact_message = document.querySelector(".form_text");
+            const txt_overlay=document.querySelector("#text");
+            
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/usermsg', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            contact_btn.addEventListener('click', function(e) {
+                sendDataToServer();
+                e.preventDefault()
+                // on("Thanks for the message we will keep in touch")
+            });
+        });
+    </script>
+    <script src="/styles/bootstrap4/popper.js"></script>
+    <script src="/styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="/plugins/easing/easing.js"></script>
+    <script src="/plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="/plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="/js/blog_single.js"></script>
+</body>
+
+</html>

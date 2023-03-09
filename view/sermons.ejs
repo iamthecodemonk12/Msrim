@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sermons</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/sermons.css">
+    <link rel="stylesheet" type="text/css" href="styles/responsive.css">
+    <link rel="stylesheet" type="text/css" href="styles/sermons_responsive.css">
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Msrim info box</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <h3>Thank you for subscribing we will get back to you</h3>
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="images/logo.png" alt="" class="resp"></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="about">About</a></li>
+                            <li><a href="sermons">Sermons</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="books">books</a></li>  
+                            <li><a href="contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">Sermons</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="/">Home</a></li>
+                                        <li>Sermons</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if (length_of_sermon.length === 0) { %>
+                <div class="col-xl-12 col-lg-6 text-center">
+                    <div class="section_title">latest sermon</div>
+                    <h3 style="text-align:center !important ;">no events posted yet</h3>
+                </div>
+                <% }else{ %>
+                    <div class="latest">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="section_title_container text-center">
+                                        <div class="section_title">latest sermon</div>
+                                        <div class="section_subtitle">A discourse for the purpose of religious</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row latest_row">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <div class="latest_play d-flex flex-column align-items-center justify-content-center">
+                                        <div class="latest_play_background" style="background-image:url(images/latest.jpg)"></div>
+                                        <a class="vimeo latest_play_button" href="<%= sermons[sermons.length-1].sermon_s_link %> " title="OH, PORTUGAL - IN 4K - Basti Hansen - Stock Footage">
+                                            <div class="latest_play_button_outer d-flex flex-column align-items-center justify-content-center trans_200">
+                                                <div class="latest_play_button_inner d-flex flex-column align-items-center justify-content-center trans_200">
+                                                    <img src="images/play.png" alt="">
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row latest_content_row">
+                                <div class="col-lg-8 offset-lg-2 text-center">
+                                    <div class="latest_content_title">
+                                        <%= sermons[sermons.length-1].sermons_title %>
+                                    </div>
+                                    <div class="latest_sermon_info_container">
+                                        <div class="sermon_info">
+                                            <div class="sermon_info_title">Pastor: </div>
+                                            <ul class="sermon_info_list">
+                                                <li>
+                                                    <a href="#">
+                                                        <%= sermons[sermons.length-1].sermon_pastor %>
+                                                    </a>,</li>
+                                            </ul>
+                                        </div>
+                                        <div class="sermon_info">
+                                            <div class="latest">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="section_title_container text-center">
+                                                                <div class="section_title">latest sermon</div>
+                                                                <div class="section_subtitle">A discourse for the purpose of religious</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row latest_row">
+                                                        <div class="col-lg-10 offset-lg-1">
+                                                            <div class="latest_play d-flex flex-column align-items-center justify-content-center">
+                                                                <div class="latest_play_background" style="background-image:url(images/latest.jpg)"></div>
+                                                                <a class="vimeo latest_play_button" href="<%= sermons[sermons.length-1].sermon_s_link %> " title="OH, PORTUGAL - IN 4K - Basti Hansen - Stock Footage">
+                                                                    <div class="latest_play_button_outer d-flex flex-column align-items-center justify-content-center trans_200">
+                                                                        <div class="latest_play_button_inner d-flex flex-column align-items-center justify-content-center trans_200">
+                                                                            <img src="images/play.png" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row latest_content_row">
+                                                        <div class="col-lg-8 offset-lg-2 text-center">
+                                                            <div class="latest_content_title">
+                                                                <%= sermons[sermons.length-1].sermons_title %>
+                                                            </div>
+                                                            <div class="latest_sermon_info_container">
+                                                                <div class="sermon_info">
+                                                                    <div class="sermon_info_title">Pastor: </div>
+                                                                    <ul class="sermon_info_list">
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <%= sermons[sermons.length-1].sermon_pastor %>
+                                                                            </a>,</li>
+                                                                        <div class="sermon_info_title">Theme: </div>
+                                                                        <ul class="sermon_info_list">
+                                                                            <li>
+                                                                                <a href="#">
+                                                                                    <%= sermons[sermons.length-1].theme %>, </a>
+                                                                            </li>
+                                                                            <!-- <li><a href="#">Prayer</a></li> -->
+                                                                        </ul>
+                                                                </div>
+                                                                <div class="sermon_info">
+                                                                    <div class="sermon_info_title">On: </div>
+                                                                    <ul class="sermon_info_list">
+                                                                        <!-- <li><a href="#">08 MAR 2018</a>,</li> -->
+                                                                        <li>
+                                                                            <a href="#">
+                                                                                <%= new Date().getDay(sermons[sermons.length-1].createdAt) %>
+                                                                                    <%= " " %>
+                                                                                        <%= days[new Date().getMonth(sermons[sermons.length-1].createdAt)] %>
+                                                                                            <%= " " %>
+                                                                                                <%= new Date().getFullYear(sermons[sermons.length-1].createdAt) %>
+                                                                            </a>,</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8 offset-md-2 text-center">
+                                                            <!-- <div class="latest_text">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean at convallis justo. Suspendisse ut nisl diam. Sed non vehicula sem. Etiam efficitur eros a leo mollis, interdum sodales erat ultricies. Pellentesque in felis
+                                    sem. Phasellus nunc tellus, suscipit rutrum risus quis, aucibus vel ipsumeu. </p>
+                            </div> -->
+                                                            <div class="sermon_links latest_sermon_links">
+                                                                <ul>
+                                                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                                                    <li><a href="<%= sermons[sermons.length-1].sermon_pdf.replace(" ./public/uploads/sermon ","../../uploads/sermon/ ").trim() %> " download><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></li>
+                                                                    <li><a href="<%= sermons[sermons.length-1].sermon_s_link %>"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                                    <li><a href="<%= sermons[sermons.length-1].sermon_audio.replace(" ./public/uploads/sermon ","../../uploads/sermon/ ").trim() %>" download><i class="fa fa-download" aria-hidden="true"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sermons">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="section_title_container text-center">
+                                                                <div class="section_title">list of sermons</div>
+                                                                <div class="section_subtitle">Our lives in praising God</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sermons">
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="section_title_container text-center">
+                                                                        <div class="section_title">list of sermons</div>
+                                                                        <div class="section_subtitle">Our lives in praising God</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row sermons_row">
+                                                                <% if (sermons.length<3) { %>
+                                                                    <div class="col-xl-12 col-lg-6">
+                                                                        <h3 style="text-align:center !important ;">no latests sermons currently available</h3>
+                                                                    </div>
+                                                                    <% }else { %>
+                                                                        <% for( let index = 0; index < sermons.length; index++ ) { %>
+                                                                            <div class="col-lg-4 sermon_col">
+                                                                                <div class="card">
+                                                                                    <div class="event_date d-flex flex-column align-items-center justify-content-center">
+                                                                                        <div class="event_day">
+                                                                                            <%= new Date().getDay(sermons[index].createdAt) %>
+                                                                                        </div>
+                                                                                        <div class="event_month">
+                                                                                            <%= days[new Date().getMonth(sermons[index].createdAt)] %>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <img class="card-img-top" src="images/sermon_1.jpg" alt="">
+                                                                                    <div class="card-body text-center">
+                                                                                        <div class="card-title sermon_title">
+                                                                                            <a href="/sermons/<%= sermons[index].sermons_title %> ">
+                                                                                                <%= sermons[index].sermons_title %>
+                                                                                            </a>
+                                                                                        </div>
+                                                                                        <div class="card-text sermon_info_container">
+                                                                                            <div class="sermon_info">
+                                                                                                <div class="sermon_info_title">Pastor: </div>
+                                                                                                <ul class="sermon_info_list">
+                                                                                                    <li>
+                                                                                                        <a href="#">
+                                                                                                            <%= sermons[index].sermon_pastor %>
+                                                                                                        </a>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                            <div class="sermon_info">
+                                                                                                <div class="sermon_info_title">Categories: </div>
+                                                                                                <ul class="sermon_info_list">
+                                                                                                    <li>
+                                                                                                        <a href="#">
+                                                                                                            <%= sermons[index].theme %>
+                                                                                                        </a>
+                                                                                                    </li>
+                                                                                                    <!-- <li><a href="#">Prayer</a></li> -->
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                            <div class="sermon_links">
+                                                                                                <ul>
+                                                                                                    <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                                                                                    <li><a href="<%= sermons[index].sermon_pdf.replace(" ./public/uploads/sermon ","../../uploads/sermon/ ").trim()  %> " download><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></li>
+                                                                                                    <li><a href="<%= sermons[index].sermon_s_link  %> "><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                                                                    <li><a href="<%= sermons[index].sermon_audio.replace(" ./public/uploads/sermon ","../../uploads/sermon/ ").trim()  %> " download><i class="fa fa-download" aria-hidden="true"></i></a></li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <% } %>
+                                                                                <% } %>
+                                                                                    <!-- Sermon -->
+                                                            </div>
+
+                                                            <!-- Page Nav -->
+
+                                                            <div class="row">
+                                                                <div class="col">
+                                                                    <div class="page_nav">
+                                                                        <ul>
+                                                                            <li class="active"><a href="#">1</a></li>
+                                                                            <li><a href="#">2</a></li>
+                                                                            <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row sermons_row">
+                                                        <% if (sermons.length<3) { %>
+                                                            <div class="col-xl-12 col-lg-6">
+                                                                <h3 style="text-align:center !important ;">no latests sermons currently available</h3>
+                                                            </div>
+                                                            <% }else { %>
+                                                                <% for( let index = 0; index < sermons.length; index++ ) { %>
+                                                                    <div class="col-lg-4 sermon_col">
+                                                                        <div class="card">
+                                                                            <div class="event_date d-flex flex-column align-items-center justify-content-center">
+                                                                                <div class="event_day">
+                                                                                    <%= new Date().getDay(sermons[index].createdAt) %>
+                                                                                </div>
+                                                                                <div class="event_month">
+                                                                                    <%= days[new Date().getMonth(sermons[index].createdAt)] %>
+                                                                                </div>
+                                                                            </div>
+                                                                            <img class="card-img-top" src="images/sermon_1.jpg" alt="">
+                                                                            <div class="card-body text-center">
+                                                                                <div class="card-title sermon_title">
+                                                                                    <a href="/sermons/<%= sermons[index].sermons_title %> ">
+                                                                                        <%= sermons[index].sermons_title %>
+                                                                                    </a>
+                                                                                </div>
+                                                                                <div class="card-text sermon_info_container">
+                                                                                    <div class="sermon_info">
+                                                                                        <div class="sermon_info_title">Pastor: </div>
+                                                                                        <ul class="sermon_info_list">
+                                                                                            <li>
+                                                                                                <a href="#">
+                                                                                                    <%= sermons[index].sermon_pastor %>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="sermon_info">
+                                                                                        <div class="sermon_info_title">Categories: </div>
+                                                                                        <ul class="sermon_info_list">
+                                                                                            <li>
+                                                                                                <a href="#">
+                                                                                                    <%= sermons[index].theme %>
+                                                                                                </a>
+                                                                                            </li>
+                                                                                            <!-- <li><a href="#">Prayer</a></li> -->
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                    <div class="sermon_links">
+                                                                                        <ul>
+                                                                                            <li><a href="#"><i class="fa fa-link" aria-hidden="true"></i></a></li>
+                                                                                            <li><a href="<%= sermons[index].sermon_pdf.replace(" ./public/uploads/sermon ","../../uploads/sermon/ ").trim()  %> " download><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a></li>
+                                                                                            <li><a href="<%= sermons[index].sermon_s_link  %> "><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                                                            <li><a href="<%= sermons[index].sermon_audio.replace(" ./public/uploads/sermon ","../../uploads/sermon/ ").trim()  %> " download><i class="fa fa-download" aria-hidden="true"></i></a></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <% } %>
+                                                                        <% } %>
+                                                                            <!-- Sermon -->
+                                                    </div>
+
+                                                    <!-- Page Nav -->
+
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <div class="page_nav">
+                                                                <ul>
+                                                                    <li class="active"><a href="/sermons?page=0">1</a></li>
+                                                                    <li><a href="/sermons?page=<%= Math.ceil(length_of_sermon.length/3-1) %>"><%= Math.ceil(length_of_sermon.length/3-1) %></a></li>
+                                                                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                            <%}%>
+                                                <!-- Latest Sermon -->
+
+                                                <!-- Sermons -->
+
+
+                                                <!-- Quote -->
+
+                                                <div class="quote">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="quote_container text-center">
+                                                                    <div class="quote_quote">“If there is no push there is no force if there is no force how do you want to run. and if there is no running then how do you want to fly.if there is no flying how do you want to land”</div>
+                                                                    <div class="quote_icon"><img src="images/quote.png" alt=""></div>
+                                                                    <div class="quote_source">Prophet Kunle Aloba(G.0)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Footer -->
+                                                <%- include ("includes/footer.ejs") %>
+                                        </div>
+
+                                        <script src="js/jquery-3.2.1.min.js"></script>
+                                        <script>
+                                            $(document).ready(function() {
+                                                const contact_btn = document.querySelector(".form_submit_button");
+                                                const contact_name = document.querySelector(".form_name");
+                                                const contact_email = document.querySelector(".email_input");
+                                                const contact_message = document.querySelector(".form_text");
+                                                const txt_overlay = document.querySelector("#text");
+
+                                                const httpAjax = new XMLHttpRequest();
+
+                                                function sendDataToServer() {
+                                                    httpAjax.onreadystatechange = function() {
+                                                        if (this.readyState == 4 && this.status == 200) {} else {
+                                                            $("#myModal").modal();
+
+                                                        }
+                                                    };
+                                                    httpAjax.open('post', '/usermsg', true);
+                                                    httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                                                    httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                                                    txt = "data";
+
+                                                };
+                                                $(".clx").click(function() {
+                                                    // $("#myModal").close();
+                                                    window.location.reload();
+                                                });
+                                                contact_btn.addEventListener('click', function(e) {
+                                                    sendDataToServer();
+                                                    e.preventDefault()
+                                                        // on("Thanks for the message we will keep in touch")
+                                                });
+                                            });
+                                        </script>
+                                        <script src="styles/bootstrap4/popper.js"></script>
+                                        <script src="styles/bootstrap4/bootstrap.min.js"></script>
+                                        <script src="plugins/easing/easing.js"></script>
+                                        <script src="plugins/parallax-js-master/parallax.min.js"></script>
+                                        <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+                                        <script src="js/sermons.js"></script>
+</body>
+
+</html>

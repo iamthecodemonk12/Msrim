@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mail Subscribers</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+    <!-- partial -->
+    <!-- partial:../../partials/_sidebar.html -->
+    <%- include("../../includes/dashboard_include/navbar.ejs")  %>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Reply user messages</h4>
+                            <form class="form-sample" method="post" action="/sndmsg">
+                                <p class="card-description">
+                                    Personal info
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">email</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" disabled class="form-control" value="<%=msg_data.email  %>" name="femail" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" disabled class="form-control" value="<%= msg_data.name %> " />
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                         
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleTextarea1">Body</label>
+                                        <textarea class="form-control" id="exampleTextarea1" rows="10" name="body" name="fbody"></textarea>
+                                    </div>
+                                </div>
+                                        <button type="submit" class="btn btn-primary mb-2">Reply</button>
+                                    </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content-wrapper ends -->
+                    <!-- partial:../../partials/_footer.html -->
+                    <%- include("../../includes/dashboard_include/footer.ejs")  %>
+                        <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="../../vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+        <script src="../../vendors/select2/select2.min.js"></script>
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="../../js/off-canvas.js"></script>
+        <script src="../../js/hoverable-collapse.js"></script>
+        <script src="../../js/template.js"></script>
+        <script src="../../js/settings.js"></script>
+        <script src="../../js/todolist.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script src="../../js/file-upload.js"></script>
+        <script src="../../js/typeahead.js"></script>
+        <script src="../../js/select2.js"></script>
+        <!-- End custom js for this page-->
+        <!--fetch departments from database-->
+        <script>
+            const select = document.querySelector("#sel");
+            console.log(select);
+            console.log(select.options);
+
+            function fetchData() {
+                const xhttp = new XMLHttpRequest();
+                let fromJson;
+                let createOptionElement;
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log("output:-" + this.responseText);
+                        // select.options.add(this.responseText);
+                        fromJson = JSON.parse(this.responseText);
+                        console.log(fromJson.length);
+                        for (let index = 0; index < fromJson.length; index++) {
+                            createOptionElement = document.createElement("option");
+                            createOptionElement.innerText = fromJson[index].dp_name;
+                            console.log(createOptionElement);
+                            // console.log(fromJson[index].id);
+                            select.options.add(createOptionElement);
+                        }
+                    } else {
+                        console.log("error:-" + this.statusText);
+                    }
+                };
+                xhttp.open("GET", "/g_apd", true);
+                xhttp.send();
+            }
+            fetchData();
+        </script>
+</body>
+
+</html>

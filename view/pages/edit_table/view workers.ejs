@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Skydash Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+    <div class="container-scroller">
+        <!-- partial:../../partials/_navbar.html -->
+        <!-- partial:../../partials/_sidebar.html -->
+        <%- include("../../includes/dashboard_include/navbar.ejs")  %>
+            <!-- partial -->
+            <!-- partial -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Workers Details</h4>
+                                    <p class="card-description">
+                                        MSRM <code>.MEDIA</code>
+                                    </p>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>uuid</th>
+                                                    <th>avatar</th>
+                                                    <th>name</th>
+                                                    <th>surname</th>
+                                                    <th>password</th>
+                                                    <th>date of birth</th>
+                                                    <th>address</th>
+                                                    <th>email</th>
+                                                    <th>phone number</th>
+                                                    <th>department</th>
+                                                    <th>role</th>
+                                                    <th>createdAt</th>
+                                                    <th>updatedAt</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr> 
+                                                    <% retrieved_data.splice(0,1)
+                                                    for( let index = 0; index < retrieved_data.length+1; index++ ) { 
+                                                    %>
+                                                        <thead>
+                                                            <td>
+                                                                <%= retrieved_data[index].id %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].uuid %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].avatar %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].name %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].surname %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].password %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].date_of_birth %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].address %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].email %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].phone %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].department %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].role %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].createdAt %>
+                                                            </td>
+                                                            <td>
+                                                                <%= retrieved_data[index].updatedAt %>
+                                                            </td>
+                                                            <td><label class="badge btn-success">View</label></td>
+                                                            <td><label class="badge btn-primary">Edit</label></td>
+                                                            <td><label class="badge badge-danger">Delete</label></td>
+                                                        </thead>
+                                                        <% } %>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <!-- content-wrapper ends -->
+                                    <!-- partial:../../partials/_footer.html -->
+                                    <%- include("../../includes/dashboard_include/footer.ejs")  %>
+                                        <!-- partial -->
+                                </div>
+                                <!-- main-panel ends -->
+                            </div>
+                            <!-- page-body-wrapper ends -->
+                        </div>
+                        <!-- container-scroller -->
+                        <!-- plugins:js -->
+                        <script src="../../vendors/js/vendor.bundle.base.js"></script>
+                        <!-- endinject -->
+                        <!-- Plugin js for this page -->
+                        <!-- End plugin js for this page -->
+                        <!-- inject:js -->
+                        <script src="../../js/off-canvas.js"></script>
+                        <script src="../../js/hoverable-collapse.js"></script>
+                        <script src="../../js/template.js"></script>
+                        <script src="../../js/settings.js"></script>
+                        <script src="../../js/todolist.js"></script>
+                        <!-- endinject -->
+                        <!-- Custom js for this page-->
+                        <!-- End custom js for this page-->
+</body>
+
+</html>

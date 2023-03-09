@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>About</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Demo project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
+    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="plugins/colorbox/colorbox.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="styles/about.css">
+    <link rel="stylesheet" type="text/css" href="styles/about_responsive.css">
+</head>
+
+<body>
+
+    <div class="super_container">
+
+        <!-- Header -->
+        <%- include ("includes/header.ejs") %>
+            <!-- Menu -->
+            <div class="modal fade" id="myModal">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+              
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                      <h4 class="modal-title">Msrim info box</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+              
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                     <h3>Thank you for subscribing we will get back to you</h3>
+                    </div>
+              
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-lg clx" data-dismiss="modal">Close</button>
+                    </div>
+              
+                  </div>
+                </div>
+            </div>
+            <div class="menu d-flex flex-column align-items-center justify-content-center">
+                <div class="menu_content">
+                    <div class="cross_1 d-flex flex-column align-items-center justify-content-center"><img src="images/logo.png" class="resp" alt=""></div>
+                    <!-- <form action="#" class="menu_search_form">
+                        <input type="search" class="menu_search_input" placeholder="Search" required="required">
+                        <button class="menu_search_button d-flex flex-column align-items-center justify-content-center">
+				<i class="fa fa-search" aria-hidden="true"></i>
+			</button>
+                    </form> -->
+                    <nav class="menu_nav">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li class="active"><a href="about">About</a></li>
+                            <li><a href="sermons">Sermons</a></li>
+                            <li><a href="events">Events</a></li>
+                            <li><a href="blog">Blog</a></li>
+                            <li><a href="books">books</a></li>  
+                            <li><a href="contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+            </div>
+
+            <!-- Home -->
+
+            <div class="home">
+                <div class="home_background" style="background-image:url(images/events.jpg)"></div>
+                <div class="home_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col d-flex flex-row align-items-center justify-content-start">
+                                <div class="home_title">About</div>
+                                <div class="breadcrumbs ml-auto">
+                                    <ul>
+                                        <li><a href="index">Home</a></li>
+                                        <li>About</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About -->
+
+            <div class="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="section_title_container text-center">
+                                <div class="section_title">welcome to our church</div>
+                                <div class="section_subtitle">It's the start of an amazing journey of faith</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row about_row">
+                        <div class="col-lg-6">
+                            <div class="about_image"><img src="images/church_b.png" alt=""></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="about_content">
+                                <div class="about_text">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer gestas ant eget risus varius, euismod tellus suscipit. Aenean condimentum cond mentum ulla, vitae imperd urna varius volutpa. Mauris lobotis comodo mollis
+                                        nolle. In vetib velit ifermentum empor euismod. Cras gravida maximus ligula ac posuere. Maecenas auctor interdum varius sollicitudin orci. Phasellus quis volutpat ex, id maximus magna. Sed elit posuere augue, tincid
+                                        unt non ipsum sit amet, maximus sagittis lectus. Quisque tincidunt, antevis pharetra sodales, non ante magna tempus nulla, sed molestie orci magna quis tellus. Nulla facilisi sit amet libero sed condimentum.</p>
+                                </div>
+                                <div class="button about_button"><a href="#">read story</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission -->
+
+           
+            <div class="mission">
+                <div class="mission_background parallax-window" data-parallax="scroll" data-image-src="images/mission.jpg" data-speed="0.8"></div>
+                <div class="mission_items d-flex flex-row flex-wrap align-items-start justify-content-start">
+
+                    <div class="mission_item text-center">
+                        <div class="mission_icon"><i class="fa fa-bell-o" aria-hidden="true"></i></div>
+                        <div class="mission_title">our mission</div>
+                        <div class="mission_text">Returning back to the beginning of how salvation was, and spreading the gospel</div>
+                    </div>
+
+                    <div class="mission_item text-center">
+                        <div class="mission_icon"><i class="fa fa-flag-o" aria-hidden="true"></i></div>
+                        <div class="mission_title">our community</div>
+                        <div class="mission_text">We have a large community that is bounded by the LOVE OF GOD.that is growing daily in strength and love</div>
+                    </div>
+
+                    <div class="mission_item text-center">
+                        <div class="mission_icon"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
+                        <div class="mission_title">our belief</div>
+                        <div class="mission_text">We believe in JESUS CHRIST the SON of the true GOD.</div>
+                    </div>
+
+                    <div class="mission_item text-center">
+                        <div class="mission_icon"><i class="fa fa-fire" aria-hidden="true"></i></div>
+                        <div class="mission_title">our faith</div>
+                        <div class="mission_text">Lorem ipsum dolor amet, consectet adipiscing doelit. Sed a mauri suscipita utrum arcu , gravida nisl. Interdum mante ipsum.</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Team -->
+
+            <div class="team">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="section_title_container text-center">
+                                <div class="section_title">our team</div>
+                                <div class="section_subtitle">It’s leader of a Christian congregation</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row team_row">
+
+                        <!-- Team Item -->
+                        <div class="col-lg-4 team_col">
+                            <div class="team_item">
+                                <div class="team_image">
+                                    <img src="images/team_1.jpg" alt="">
+                                    <div class="team_overlay d-flex flex-column align-items-center justify-content-end text-center trans_200">
+                                        <div class="team_overlay_text">
+                                            <p>Discplinarian and a man of integrity. who's empthatic character has helped in the growth of the workers and youth of the ch</p>
+                                        </div>
+                                        <div class="team_overlay_contact">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <div> : infodeercreative@gmail.com</div>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                    <div>: +1234 800 8080</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team_content text-center">
+                                    <div class="team_name">Pastor John Okpa</div>
+                                    <div class="team_title">Pastor</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team Item -->
+                        <div class="col-lg-4 team_col">
+                            <div class="team_item">
+                                <div class="team_image">
+                                    <img src="images/team_2.jpg" alt="">
+                                    <div class="team_overlay d-flex flex-column align-items-center justify-content-end text-center trans_200">
+                                        <div class="team_overlay_text">
+                                            <p>The leader, founder and general overseer of morning salavation revelation international ministries.An enterprenuer and leader</p>
+                                        </div>
+                                        <div class="team_overlay_contact">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <div> : infodeercreative@gmail.com</div>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                    <div>: +234 8077229211</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team_content text-center">
+                                    <div class="team_name">Prophet Kunle Aloba</div>
+                                    <div class="team_title">General Overseer and founder</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Team Item -->
+                        <div class="col-lg-4 team_col">
+                            <div class="team_item">
+                                <div class="team_image">
+                                    <img src="images/team_3.jpg" alt="">
+                                    <div class="team_overlay d-flex flex-column align-items-center justify-content-end text-center trans_200">
+                                        <div class="team_overlay_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a sollicitudin arcu. Nullam sagittis ipsum aliquet gravida mattis.</p>
+                                        </div>
+                                        <div class="team_overlay_contact">
+                                            <ul>
+                                                <li>
+                                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                                    <div> : infodeercreative@gmail.com</div>
+                                                </li>
+                                                <li>
+                                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                                    <div>: +1234 800 8080</div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team_content text-center">
+                                    <div class="team_name">Pastor Patrick Ekpo Edet</div>
+                                    <div class="team_title">Assistant General Overseer</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote -->
+
+            <div class="quote">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="quote_container text-center">
+                                <div class="quote_quote">“If there is no push there is no force if there is no force how do you want to run. and if there is no running then how do you want to fly.if there is no flying how do you want to land”</div>
+                                <div class="quote_icon"><img src="images/quote.png" alt=""></div>
+                                <div class="quote_source">Prophet Kunle Aloba(G.0)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <%- include ("includes/footer.ejs") %>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const contact_btn = document.querySelector(".form_submit_button");
+            const contact_name = document.querySelector(".form_name");
+            const contact_email = document.querySelector(".email_input");
+            const contact_message = document.querySelector(".form_text");
+            const txt_overlay=document.querySelector("#text");
+            
+            const httpAjax = new XMLHttpRequest();
+            function sendDataToServer() {
+                httpAjax.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                    } else {
+                        $("#myModal").modal();
+
+                    }
+                };
+                httpAjax.open('post', '/usermsg', true);
+                httpAjax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                httpAjax.send("fname=" + contact_name.value + "&femail=" + contact_email.value + "&fmsg=" + contact_message.value);
+                txt="data";
+
+            };
+            $(".clx").click(function(){
+                // $("#myModal").close();
+                window.location.reload();
+            });
+            contact_btn.addEventListener('click', function(e) {
+                sendDataToServer();
+                e.preventDefault()
+                // on("Thanks for the message we will keep in touch")
+            });
+        });
+    </script>
+    <script src="styles/bootstrap4/popper.js"></script>
+    <script src="styles/bootstrap4/bootstrap.min.js"></script>
+    <script src="plugins/easing/easing.js"></script>
+    <script src="plugins/parallax-js-master/parallax.min.js"></script>
+    <script src="plugins/colorbox/jquery.colorbox-min.js"></script>
+    <script src="js/about.js"></script>
+</body>
+
+</html>

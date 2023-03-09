@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Register Workers</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../vendors/feather/feather.css">
+    <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+    <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+    <!-- endinject -->
+    <link rel="shortcut icon" href="../../images/favicon.png" />
+</head>
+
+<body>
+    <!-- partial -->
+    <!-- partial:../../partials/_sidebar.html -->
+    <%- include("../../includes/dashboard_include/navbar.ejs")  %>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="col-12 grid-margin">
+                    <div class="card">
+                        <div class="alert alert-danger">
+                            <strong><%= error %> </strong>
+                            <p>
+                                <%=errorDesc %>
+                            </p>
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">WORKERS REGISTRATION FORM</h4>
+                            <form class="form-sample" enctype="multipart/form-data" method="post" action="/cw">
+                                <p class="card-description">
+                                    Personal info
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">First Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name="f_name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Last Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" name="f_last_name" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Gender</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" name="f_gender">
+                              <option>Male</option>
+                              <option>Female</option>
+                            </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Date of Birth</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" placeholder="dd/mm/yyyy" name="f_date_of_birth" type="date" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Department</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="sel" name="f_dp_name">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Password</label>
+                                            <div class="col-sm-9">
+                                                <input type="password" class="form-control" name="f_pswd" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Email</label>
+                                            <div class="col-sm-9">
+                                                <input type="email" class="form-control" placeholder="dummydata@gmail.com" name="f_email" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">State</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" placeholder="katsina data" name="f_state" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Address</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" placeholder="Dutse Makaranta" name="f_address" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Phone number</label>
+                                            <div class="col-sm-9">
+                                                <input type="number" class="form-control" placeholder="0800000000000" name="f_phone_number" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Position</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" id="sel2" name="f_position">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label">Role</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" name="f_role">
+                              <option>Admin</option>
+                              <option>Worker</option>
+                            </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>File upload</label>
+                                            <input type="file" name="photo" class="file-upload-default">
+                                            <div class="input-group col-xs-12">
+                                                <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                                <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                              </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                                    </div>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                    <!-- content-wrapper ends -->
+                    <!-- partial:../../partials/_footer.html -->
+                    <%- include("../../includes/dashboard_include/footer.ejs")  %>
+                        <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+        <!-- container-scroller -->
+        <!-- plugins:js -->
+        <script src="../../vendors/js/vendor.bundle.base.js"></script>
+        <!-- endinject -->
+        <!-- Plugin js for this page -->
+        <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+        <script src="../../vendors/select2/select2.min.js"></script>
+        <!-- End plugin js for this page -->
+        <!-- inject:js -->
+        <script src="../../js/off-canvas.js"></script>
+        <script src="../../js/hoverable-collapse.js"></script>
+        <script src="../../js/template.js"></script>
+        <script src="../../js/settings.js"></script>
+        <script src="../../js/todolist.js"></script>
+        <!-- endinject -->
+        <!-- Custom js for this page-->
+        <script src="../../js/file-upload.js"></script>
+        <script src="../../js/typeahead.js"></script>
+        <script src="../../js/select2.js"></script>
+        <script>
+            const input = document.querySelector("#inlineFormInputName2");
+            const btn = document.querySelector(".btn");
+            const xhttp = new XMLHttpRequest();
+            const alrt_box = document.querySelector(".alert >strong");
+            const alrt_box_cont = document.querySelector(".alert");
+
+            function findDupInDb() {
+                if (alrt_box.innerText == "") {
+                    alrt_box_cont.style.opacity = '0';
+                } else {
+                    alrt_box_cont.style.transition = '0.5s'
+                    alrt_box_cont.style.opacity = '1';
+                    setTimeout(function() {
+                        alrt_box.innerText = "";
+                        alrt_box_cont.style.opacity = '0';
+                    }, 5000);
+                }
+            };
+            btn.addEventListener('click', function(e) {
+                if (input.value === '') {
+                    alrt_box_cont.style.transition = '0.5s'
+                    alrt_box_cont.style.opacity = '1';
+                    setTimeout(function() {
+                        alrt_box.innerText = "";
+                        alrt_box_cont.style.opacity = '0';
+                    }, 5000);
+                    e.preventDefault();
+                }
+            });
+            findDupInDb
+            window.onload = findDupInDb();
+        </script>
+        <!-- End custom js for this page-->
+        <!--fetch departments from database-->
+        <script>
+            const select = document.querySelector("#sel");
+            const select_position = document.querySelector("#sel2");
+
+            function fetchData() {
+                const xhttp = new XMLHttpRequest();
+                let fromJson;
+                let createOptionElement;
+                let createOptionElement2;
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        // console.log("output:-" + this.responseText);
+                        // select.options.add(this.responseText);
+                        fromJson = JSON.parse(this.responseText);
+                        // console.log(fromJson.dep);
+                        // console.log(fromJson.dep.length)
+                        for (let index = 0; index < fromJson.dep.length; index++) {
+                            createOptionElement = document.createElement("option");
+                            createOptionElement.innerText = fromJson.dep[index].dp_name;
+                            // console.log(createOptionElement);
+                            // console.log(fromJson[index].id);
+                            select.options.add(createOptionElement);
+                            for (let index = 0; index < fromJson.pos.length; index++) {
+                                createOptionElement2 = document.createElement("option");
+                                createOptionElement2.innerText = fromJson.pos[index].name;
+                                // console.log(createOptionElement);
+                                // console.log(fromJson[index].id);
+                                select_position.options.add(createOptionElement2);
+                            }
+                        }
+                    } else {
+                        console.log("error:-" + this.statusText);
+                    }
+                };
+                xhttp.open("GET", "/g_AllData", true);
+                xhttp.send();
+            }
+            fetchData();
+        </script>
+</body>
+
+</html>

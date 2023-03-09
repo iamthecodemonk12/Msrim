@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        window.onload=function(){
+            const bool=confirm("Are you sure you want to delete this data");
+            if(bool===true){
+                const requestOptions = {
+                    method: 'delete',
+                };
+                const req_params = window.location.pathname;
+                fetch(`/dmsg/${req_params.replace('/dmsg/',' ')}`, requestOptions).then(function(response) {
+                        // response.json();
+                        // console.log(response.json())
+                    }).then(function(data) {
+                        // console.log(data);
+                    }).catch(error => {
+                        console.log(error);
+                });
+                window.location.href="/msg";
+            } 
+            else{
+                // alert("hmm")
+                window.location.href='/msg';
+            }
+        }
+    </script>
+</body>
+</html>
